@@ -3,7 +3,7 @@ title: "Warmup 02"
 subtitle: "Stat 133, Fall 2017"
 author: "Deborah Chang"
 date: "9/16/2017"
-output: github_document
+output: html_document
 urlcolor: blue
 ---
 ### _NBA_ Salary Points: Sample Data Analysis of **Categorical** and **Quantitative** Variables

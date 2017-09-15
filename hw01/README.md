@@ -1,10 +1,31 @@
 # HW01 - Summarizing Variables
 
-The purpose of this HW is to summarize variables (quantatitative and categorical) graphically and numerically.
+Variables
 
-Modify the content of this file.
+averagePoints: Average of the points of players
+averageSalary: Average of the salaries of players
+covariance: Covariance between points and salaries
+correlation: Correlation between points and salaries
+intercept: Intercept of regression line
+numberOfIndividuals: The number of players in the data
+sdevPoints: Standard deviation among points
+sdevSalaries: Standard deviation among salaries
+slope: Slope of regression line
+sumPoints: Sum of the points of all players combined
+sumSalary: Sum of the salaries of all players combined
+variancePoints: Variance of the points among players
+varianceSalary: Variance of the salaries among players
+yHat: Predicted salaries for regression line
 
-- Special instructions for any user (if necessary)
-- Special instructions for graders (if necessary)
-- Links to any resources that you used to complete the HW
-- List of references that you used to complete the HW
+Graphs
+
+Scatter Plot of Points and Salary
+Regression and Lowess Lines
+Scatterplot with Lowess Smooth
+3D ScatterPlot
+Conditional Boxplot
+
+Resources/References
+
+http://rmarkdown.rstudio.com/
+https://stackoverflow.com/questions/16819956/invalid-factor-level-na-generated
