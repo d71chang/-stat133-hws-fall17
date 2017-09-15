@@ -27,5 +27,5 @@ Conditional Boxplot
 
 Resources/References
 
-http://rmarkdown.rstudio.com/
-https://stackoverflow.com/questions/16819956/invalid-factor-level-na-generated
+- http://rmarkdown.rstudio.com/
+- https://stackoverflow.com/questions/16819956/invalid-factor-level-na-generated
