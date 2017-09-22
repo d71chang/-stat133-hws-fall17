@@ -83,7 +83,6 @@ yHat <- intercept + (slope*points)
 
 summary(yHat)
 ```
-
 - $yHat = slope*points + intercept$
 - yHat = 0.008556681*points + 1.509886
 
