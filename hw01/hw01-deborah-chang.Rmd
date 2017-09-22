@@ -1,5 +1,5 @@
 ---
-title: "hw01-deborah-chang.Rmd"
+title: "HW01"
 subtitle: "Stat 133, Fall 2017"
 author: "Deborah Chang"
 output: github_document
