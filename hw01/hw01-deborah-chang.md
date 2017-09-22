@@ -139,8 +139,8 @@ The slope coefficient displays the rate at which salary increases by a number of
 -   0 points: 1509886
 -   100 points: 2365554
 -   500 points: 5788226
--   1000 points: 10066566
--   2000 points: 18623247
+-   1000 points: 10066567
+-   2000 points: 18623248
 
 ### 5) Plotting the regression line
 
