@@ -17,13 +17,6 @@ Variables
 - varianceSalary: Variance of the salaries among players
 - yHat: Predicted salaries for regression line
 
-Graphs
-
-Scatter Plot of Points and Salary
-Regression and Lowess Lines
-Scatterplot with Lowess Smooth
-3D ScatterPlot
-Conditional Boxplot
 
 Resources/References
 
