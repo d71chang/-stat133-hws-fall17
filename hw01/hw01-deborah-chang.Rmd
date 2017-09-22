@@ -1,5 +1,7 @@
 ---
 title: "hw01-deborah-chang.Rmd"
+subtitle: "Stat 133, Fall 2017"
+author: "Deborah Chang"
 output: github_document
 ---
 
@@ -36,7 +38,7 @@ numberOfIndividuals
 sumPoints <- sum(points)
 sumPoints
 
-sumSalary <- sum(salaryMil)
+sumSalary <- sum(salary)
 sumSalary
 
 averagePoints <- sumPoints / length(points)
@@ -64,13 +66,13 @@ covariance <- sum(mult) / (numberOfIndividuals -1)
 covariance
 
 correlation <- covariance / (sdevPoints*sdevSalary)
-corrrelation
+correlation
 ```
 
 ### 4) Simple Linear Regression
 
 ``` {r}
-slope <- sum(mult) / sum(points - averagePoints)
+slope <- correlation * (sdevSalary/sdevPoints)
 slope
 
 intercept <- averageSalary - (slope*averagePoints)
@@ -79,7 +81,7 @@ intercept
 yHat <- intercept + (slope*points)
 
 summary(yHat)
-###write inline equation here
+### salary = (8556.681)*points + 1509886
 ```
 
 The slope coefficient displays the rate at which salary increases by a number of points.
@@ -93,12 +95,57 @@ The intercept shows the salary earned when a player scores 0 points.
 
 ### 5) Plotting the regression line 
 ``` {r}
-plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary")
-
+plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
+abline(lm(salaryMil~points), col = "red")
+lines(lowess(points, salaryMil), col = "blue")
+text(2500, 18, labels = "regression", col = "red")
+text(2500, 30, labels = "lowess", col = "blue")
 ```
 
 ### 6) Regression residuals and Coefficient of Determination 
+```{r}
+residuals <- salary - yHat
+summary(residuals)
+
+RSS <- sum((residuals)^2)
+RSS
+
+SquaredSal <- (salary - averageSalary)^2
+TSS <- sum(SquaredSal)
+TSS
+
+Rsquare <- 1- (RSS/TSS)
+Rsquare
+```
 ### 7) Exploring Position and Experience
+####Scatterplot
+```{r}
+RExp <- replace(experience, experience == "R", 0)
+IntExp <- as.integer(RExp)
+plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions")
+lines(lowess(IntExp, salaryMil), col = "blue")
+text(15, 8, labels = "lowess", col = "blue")
+```
+The scatterplot seems to depict that the less experience that a player has, the lower salary they earn. There is a significant cluster among the 0 to 5 years of experience for players, and the rest of points on the plot increasingly scatter as the years of experience increase, possibly based on other factors. 
+
+####3D Scatterplot
+``` {r}
+scatterplot3d(x = points, y = IntExp, z = salaryMil)
+```
+The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics
+.  
+####Boxplot
+```{r}
+boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)")
+```
+
+
+The boxplot depicts the salaries of the five positions. From observation, the center position has the larger spread without outliers, and seems to have a higher potential of earning a higher salary. For the other positions, variation is lower but with some outliers.
+
+From the scatterplots, experience seems to be associated with salary through the moderately positive linearities, but the strength of association cannot be determined, as there is a higher scatter among players with more experience. Again, this may be based on another variable.
+
+From the boxplot, it is harder to say whether position is related to salary, as there is a consistent amount of similar variance among the positions. The means and overall quartiles seem to be around the same salary, with the exception of the center position having a higher spread. Though the highest salary is from the center position, this case seems to be an exception, as the majority of players, regardless of position, make about the same. 
+
 ### 8) Comments and Reflections
 - Some things that were challenging were applying the arguments and functions into my plots.
 - Some straightforward items were analyzing the variables through regression and correlation.

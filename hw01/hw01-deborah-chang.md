@@ -1,5 +1,6 @@
 hw01-deborah-chang.Rmd
 ================
+Deborah Chang
 
 ### 1) A bit of data preprocessing
 
@@ -40,11 +41,11 @@ sumPoints
     ## [1] 241053
 
 ``` r
-sumSalary <- sum(salaryMil)
+sumSalary <- sum(salary)
 sumSalary
 ```
 
-    ## [1] 2728.473
+    ## [1] 2728473150
 
 ``` r
 averagePoints <- sumPoints / length(points)
@@ -58,7 +59,7 @@ averageSalary <- sumSalary / length(salaryMil)
 averageSalary
 ```
 
-    ## [1] 6.187014
+    ## [1] 6187014
 
 ``` r
 variancePoints <- (sum((points - averagePoints)^2)) / (numberOfIndividuals -1)
@@ -72,7 +73,7 @@ varianceSalary <- (sum((salary - averageSalary)^2)) / (numberOfIndividuals -1)
 varianceSalary
 ```
 
-    ## [1] 8.15558e+13
+    ## [1] 4.318973e+13
 
 ``` r
 sdevPoints <- sqrt(variancePoints)
@@ -86,7 +87,7 @@ sdevSalary <- sqrt(varianceSalary)
 sdevSalary
 ```
 
-    ## [1] 9030825
+    ## [1] 6571890
 
 ``` r
 #covariance
@@ -100,26 +101,26 @@ covariance
 
 ``` r
 correlation <- covariance / (sdevPoints*sdevSalary)
-corrrelation
+correlation
 ```
 
-    ## Error in eval(expr, envir, enclos): object 'corrrelation' not found
+    ## [1] 0.6367043
 
 ### 4) Simple Linear Regression
 
 ``` r
-slope <- sum(mult) / sum(points - averagePoints)
+slope <- correlation * (sdevSalary/sdevPoints)
 slope
 ```
 
-    ## [1] 1.131345e+23
+    ## [1] 8556.681
 
 ``` r
 intercept <- averageSalary - (slope*averagePoints)
 intercept
 ```
 
-    ## [1] -6.183995e+25
+    ## [1] 1509886
 
 ``` r
 yHat <- intercept + (slope*points)
@@ -127,11 +128,11 @@ yHat <- intercept + (slope*points)
 summary(yHat)
 ```
 
-    ##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
-    ## -6.184e+25 -4.419e+25 -1.297e+25  3.938e+09  2.640e+25  2.276e+26
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ##  1509886  2844728  5206372  6187014  8184097 23397875
 
 ``` r
-###write inline equation here
+### salary = (8556.681)*points + 1509886
 ```
 
 The slope coefficient displays the rate at which salary increases by a number of points. The intercept shows the salary earned when a player scores 0 points.
@@ -145,14 +146,83 @@ The slope coefficient displays the rate at which salary increases by a number of
 ### 5) Plotting the regression line
 
 ``` r
-plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary")
+plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
+abline(lm(salaryMil~points), col = "red")
+lines(lowess(points, salaryMil), col = "blue")
+text(2500, 18, labels = "regression", col = "red")
+text(2500, 30, labels = "lowess", col = "blue")
 ```
 
 ![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
 ### 6) Regression residuals and Coefficient of Determination
 
+``` r
+residuals <- salary - yHat
+summary(residuals)
+```
+
+    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    ## -14190304  -2793926  -1094918         0   2555173  18809961
+
+``` r
+RSS <- sum((residuals)^2)
+RSS
+```
+
+    ## [1] 1.129962e+16
+
+``` r
+SquaredSal <- (salary - averageSalary)^2
+TSS <- sum(SquaredSal)
+TSS
+```
+
+    ## [1] 1.900348e+16
+
+``` r
+Rsquare <- 1- (RSS/TSS)
+Rsquare
+```
+
+    ## [1] 0.4053923
+
 ### 7) Exploring Position and Experience
+
+#### Scatterplot
+
+``` r
+RExp <- replace(experience, experience == "R", 0)
+IntExp <- as.integer(RExp)
+plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions")
+lines(lowess(IntExp, salaryMil), col = "blue")
+text(15, 8, labels = "lowess", col = "blue")
+```
+
+![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png) The scatterplot seems to depict that the less experience that a player has, the lower salary they earn. There is a significant cluster among the 0 to 5 years of experience for players, and the rest of points on the plot increasingly scatter as the years of experience increase, possibly based on other factors.
+
+#### 3D Scatterplot
+
+``` r
+scatterplot3d(x = points, y = IntExp, z = salaryMil)
+```
+
+    ## Error in scatterplot3d(x = points, y = IntExp, z = salaryMil): could not find function "scatterplot3d"
+
+The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics .
+\#\#\#\#Boxplot
+
+``` r
+boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)")
+```
+
+![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-1.png)
+
+The boxplot depicts the salaries of the five positions. From observation, the center position has the larger spread without outliers, and seems to have a higher potential of earning a higher salary. For the other positions, variation is lower but with some outliers.
+
+From the scatterplots, experience seems to be associated with salary through the moderately positive linearities, but the strength of association cannot be determined, as there is a higher scatter among players with more experience. Again, this may be based on another variable.
+
+From the boxplot, it is harder to say whether position is related to salary, as there is a consistent amount of similar variance among the positions. The means and overall quartiles seem to be around the same salary, with the exception of the center position having a higher spread. Though the highest salary is from the center position, this case seems to be an exception, as the majority of players, regardless of position, make about the same.
 
 ### 8) Comments and Reflections
 
