@@ -38,7 +38,7 @@ numberOfIndividuals
 sumPoints <- sum(points)
 sumPoints
 
-sumSalary <- sum(salary)
+sumSalary <- sum(salaryMil)
 sumSalary
 
 averagePoints <- sumPoints / length(points)
@@ -50,7 +50,7 @@ averageSalary
 variancePoints <- (sum((points - averagePoints)^2)) / (numberOfIndividuals -1)
 variancePoints
 
-varianceSalary <- (sum((salary - averageSalary)^2)) / (numberOfIndividuals -1)
+varianceSalary <- (sum((salaryMil - averageSalary)^2)) / (numberOfIndividuals -1)
 varianceSalary
 
 sdevPoints <- sqrt(variancePoints)
@@ -60,7 +60,7 @@ sdevSalary <- sqrt(varianceSalary)
 sdevSalary
 
 #covariance
-mult <- (points - averagePoints) * (salary - averageSalary)
+mult <- (points - averagePoints) * (salaryMil - averageSalary)
 
 covariance <- sum(mult) / (numberOfIndividuals -1)
 covariance
@@ -81,8 +81,10 @@ intercept
 yHat <- intercept + (slope*points)
 
 summary(yHat)
-### salary = (8556.681)*points + 1509886
 ```
+
+- $yHat = slope*points + intercept$
+- yHat = 0.008556681*points + 1.509886
 
 The slope coefficient displays the rate at which salary increases by a number of points.
 The intercept shows the salary earned when a player scores 0 points. 
@@ -98,7 +100,7 @@ The intercept shows the salary earned when a player scores 0 points.
 plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
 abline(lm(salaryMil~points), col = "red")
 lines(lowess(points, salaryMil), col = "blue")
-text(2500, 18, labels = "regression", col = "red")
+text(2500, 17, labels = "regression", col = "red")
 text(2500, 30, labels = "lowess", col = "blue")
 ```
 

@@ -41,11 +41,11 @@ sumPoints
     ## [1] 241053
 
 ``` r
-sumSalary <- sum(salary)
+sumSalary <- sum(salaryMil)
 sumSalary
 ```
 
-    ## [1] 2728473150
+    ## [1] 2728.473
 
 ``` r
 averagePoints <- sumPoints / length(points)
@@ -59,7 +59,7 @@ averageSalary <- sumSalary / length(salaryMil)
 averageSalary
 ```
 
-    ## [1] 6187014
+    ## [1] 6.187014
 
 ``` r
 variancePoints <- (sum((points - averagePoints)^2)) / (numberOfIndividuals -1)
@@ -69,11 +69,11 @@ variancePoints
     ## [1] 239136.2
 
 ``` r
-varianceSalary <- (sum((salary - averageSalary)^2)) / (numberOfIndividuals -1)
+varianceSalary <- (sum((salaryMil - averageSalary)^2)) / (numberOfIndividuals -1)
 varianceSalary
 ```
 
-    ## [1] 4.318973e+13
+    ## [1] 43.18973
 
 ``` r
 sdevPoints <- sqrt(variancePoints)
@@ -87,17 +87,17 @@ sdevSalary <- sqrt(varianceSalary)
 sdevSalary
 ```
 
-    ## [1] 6571890
+    ## [1] 6.57189
 
 ``` r
 #covariance
-mult <- (points - averagePoints) * (salary - averageSalary)
+mult <- (points - averagePoints) * (salaryMil - averageSalary)
 
 covariance <- sum(mult) / (numberOfIndividuals -1)
 covariance
 ```
 
-    ## [1] 2046212512
+    ## [1] 2046.213
 
 ``` r
 correlation <- covariance / (sdevPoints*sdevSalary)
@@ -113,14 +113,14 @@ slope <- correlation * (sdevSalary/sdevPoints)
 slope
 ```
 
-    ## [1] 8556.681
+    ## [1] 0.008556681
 
 ``` r
 intercept <- averageSalary - (slope*averagePoints)
 intercept
 ```
 
-    ## [1] 1509886
+    ## [1] 1.509886
 
 ``` r
 yHat <- intercept + (slope*points)
@@ -128,12 +128,11 @@ yHat <- intercept + (slope*points)
 summary(yHat)
 ```
 
-    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-    ##  1509886  2844728  5206372  6187014  8184097 23397875
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   1.510   2.845   5.206   6.187   8.184  23.398
 
-``` r
-### salary = (8556.681)*points + 1509886
-```
+-   *y**H**a**t* = *s**l**o**p**e* \* *p**o**i**n**t**s* + *i**n**t**e**r**c**e**p**t*
+-   yHat = 0.008556681\*points + 1.509886
 
 The slope coefficient displays the rate at which salary increases by a number of points. The intercept shows the salary earned when a player scores 0 points.
 
@@ -149,7 +148,7 @@ The slope coefficient displays the rate at which salary increases by a number of
 plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
 abline(lm(salaryMil~points), col = "red")
 lines(lowess(points, salaryMil), col = "blue")
-text(2500, 18, labels = "regression", col = "red")
+text(2500, 17, labels = "regression", col = "red")
 text(2500, 30, labels = "lowess", col = "blue")
 ```
 
@@ -162,15 +161,15 @@ residuals <- salary - yHat
 summary(residuals)
 ```
 
-    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-    ## -14190304  -2793926  -1094918         0   2555173  18809961
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ##     5143  1286157  3499998  6187008  9249992 30963432
 
 ``` r
 RSS <- sum((residuals)^2)
 RSS
 ```
 
-    ## [1] 1.129962e+16
+    ## [1] 3.588454e+16
 
 ``` r
 SquaredSal <- (salary - averageSalary)^2
@@ -178,14 +177,14 @@ TSS <- sum(SquaredSal)
 TSS
 ```
 
-    ## [1] 1.900348e+16
+    ## [1] 3.588455e+16
 
 ``` r
 Rsquare <- 1- (RSS/TSS)
 Rsquare
 ```
 
-    ## [1] 0.4053923
+    ## [1] 4.293693e-07
 
 ### 7) Exploring Position and Experience
 
