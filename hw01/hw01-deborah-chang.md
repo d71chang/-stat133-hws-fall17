@@ -206,9 +206,7 @@ text(15, 8, labels = "lowess", col = "blue")
 scatterplot3d(x = points, y = IntExp, z = salaryMil)
 ```
 
-    ## Error in scatterplot3d(x = points, y = IntExp, z = salaryMil): could not find function "scatterplot3d"
-
-The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics .
+![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png) The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics .
 \#\#\#\#Boxplot
 
 ``` r
