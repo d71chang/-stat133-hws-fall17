@@ -134,7 +134,9 @@ The scatterplot seems to depict that the less experience that a player has, the 
 ``` {r}
 scatterplot3d(x = points, y = IntExp, z = salaryMil)
 ```
-The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics
+
+
+- The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics
 .  
 ####Boxplot
 ```{r}
