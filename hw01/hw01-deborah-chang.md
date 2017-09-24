@@ -2,6 +2,13 @@ HW01
 ================
 Deborah Chang
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+load("data/nba2017-salary-points.RData")
+# list available objects
+ls()
+library(scatterplot3d)
+```
 ### 1) A bit of data preprocessing
 
 ``` r
