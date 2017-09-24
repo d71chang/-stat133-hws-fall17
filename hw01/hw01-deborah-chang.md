@@ -215,7 +215,7 @@ scatterplot3d(x = points, y = IntExp, z = salaryMil)
 #### Boxplot
 
 ``` r
-boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)")
+boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)", names = c("center", "point_fwd", "point_guard", "small_fwd", "shoot_guard"))
 ```
 
 ![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-1.png)
