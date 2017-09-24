@@ -148,7 +148,7 @@ The slope coefficient displays the rate at which salary increases by a number of
 plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
 abline(lm(salaryMil~points), col = "red", lwd = 2)
 lines(lowess(points, salaryMil), col = "blue", lwd = 2)
-text(2400, 19, labels = "regression", col = "red")
+text(2400, 18.5, labels = "regression", col = "red")
 text(2500, 30, labels = "lowess", col = "blue")
 ```
 
