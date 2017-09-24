@@ -205,7 +205,7 @@ text(15, 8, labels = "lowess", col = "blue")
 #### 3D Scatterplot
 
 ``` r
-scatterplot3d(x = points, y = IntExp, z = salaryMil)
+scatterplot3d(x = points, y = IntExp, z = salaryMil, xlab = "points", ylab = "experience", zlab = "salary", main = "3D Scatterplot", color = "red", box = TRUE)
 ```
 
 ![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png)
