@@ -198,7 +198,9 @@ lines(lowess(IntExp, salaryMil), col = "blue")
 text(15, 8, labels = "lowess", col = "blue")
 ```
 
-![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png) The scatterplot seems to depict that the less experience that a player has, the lower salary they earn. There is a significant cluster among the 0 to 5 years of experience for players, and the rest of points on the plot increasingly scatter as the years of experience increase, possibly based on other factors.
+![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
+
+-   The scatterplot seems to depict that the less experience that a player has, the lower salary they earn. There is a significant cluster among the 0 to 5 years of experience for players, and the rest of points on the plot increasingly scatter as the years of experience increase, possibly based on other factors.
 
 #### 3D Scatterplot
 
@@ -206,8 +208,11 @@ text(15, 8, labels = "lowess", col = "blue")
 scatterplot3d(x = points, y = IntExp, z = salaryMil)
 ```
 
-![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png) The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics .
-\#\#\#\#Boxplot
+![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png)
+
+-   The 3D scatterplot seems to be more positively linear, based on observation. Again, there is a heavy cluster for players with very low salaries, points, and experience. As years of experience increase, the scatter is still moderately linear but starts to have a larger spread among others with similar statistics
+
+#### Boxplot
 
 ``` r
 boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)")
