@@ -1,6 +1,6 @@
 # HW01 - Summarizing Variables
 
-This assignment delves into analysis of various factors and relationships between points and salary of NBA players.
+This assignment delves into analysis of various factors and relationships between points and salaries of NBA players.
 
 Variables
 
