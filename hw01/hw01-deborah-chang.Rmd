@@ -26,7 +26,7 @@ table(factored)
 ### 2) Scatterplot of Points and Salary
 
 ``` {r}
-plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary")
+plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions)")
 
 ```
 
@@ -98,21 +98,21 @@ The intercept shows the salary earned when a player scores 0 points.
 ### 5) Plotting the regression line 
 ``` {r}
 plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
-abline(lm(salaryMil~points), col = "red")
-lines(lowess(points, salaryMil), col = "blue")
+abline(lm(salaryMil~points), col = "red", lwd = 2)
+lines(lowess(points, salaryMil), col = "blue", lwd = 2)
 text(2400, 19, labels = "regression", col = "red")
 text(2500, 30, labels = "lowess", col = "blue")
 ```
 
 ### 6) Regression residuals and Coefficient of Determination 
 ```{r}
-residuals <- salary - yHat
+residuals <- salaryMil - yHat
 summary(residuals)
 
 RSS <- sum((residuals)^2)
 RSS
 
-SquaredSal <- (salary - averageSalary)^2
+SquaredSal <- (salaryMil - averageSalary)^2
 TSS <- sum(SquaredSal)
 TSS
 
@@ -124,7 +124,7 @@ Rsquare
 ```{r}
 RExp <- replace(experience, experience == "R", 0)
 IntExp <- as.integer(RExp)
-plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions")
+plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions)")
 lines(lowess(IntExp, salaryMil), col = "blue")
 text(15, 8, labels = "lowess", col = "blue")
 ```
@@ -142,7 +142,7 @@ scatterplot3d(x = points, y = IntExp, z = salaryMil)
 
 ####Boxplot
 ```{r}
-boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)")
+boxplot(salaryMil~position, main = "Position v. Salary", xlab = "Position", ylab = "Salary (in millions)", names = c("center", "point_fwd", "point_guard", "small_fwd", "shoot_guard"))
 ```
 
 

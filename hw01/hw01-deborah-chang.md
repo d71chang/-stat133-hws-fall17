@@ -2,13 +2,6 @@ HW01
 ================
 Deborah Chang
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(error = TRUE)
-load("data/nba2017-salary-points.RData")
-# list available objects
-ls()
-library(scatterplot3d)
-```
 ### 1) A bit of data preprocessing
 
 ``` r
@@ -26,7 +19,7 @@ table(factored)
 ### 2) Scatterplot of Points and Salary
 
 ``` r
-plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary")
+plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions)")
 ```
 
 ![](hw01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
@@ -153,8 +146,8 @@ The slope coefficient displays the rate at which salary increases by a number of
 
 ``` r
 plot(points, salaryMil, main = "Points vs Salary", xlab = "Points", ylab = "Salary (in millions")
-abline(lm(salaryMil~points), col = "red")
-lines(lowess(points, salaryMil), col = "blue")
+abline(lm(salaryMil~points), col = "red", lwd = 2)
+lines(lowess(points, salaryMil), col = "blue", lwd = 2)
 text(2400, 19, labels = "regression", col = "red")
 text(2500, 30, labels = "lowess", col = "blue")
 ```
@@ -164,34 +157,34 @@ text(2500, 30, labels = "lowess", col = "blue")
 ### 6) Regression residuals and Coefficient of Determination
 
 ``` r
-residuals <- salary - yHat
+residuals <- salaryMil - yHat
 summary(residuals)
 ```
 
-    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-    ##     5143  1286157  3499998  6187008  9249992 30963432
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ## -14.190  -2.794  -1.095   0.000   2.555  18.810
 
 ``` r
 RSS <- sum((residuals)^2)
 RSS
 ```
 
-    ## [1] 3.588454e+16
+    ## [1] 11299.62
 
 ``` r
-SquaredSal <- (salary - averageSalary)^2
+SquaredSal <- (salaryMil - averageSalary)^2
 TSS <- sum(SquaredSal)
 TSS
 ```
 
-    ## [1] 3.588455e+16
+    ## [1] 19003.48
 
 ``` r
 Rsquare <- 1- (RSS/TSS)
 Rsquare
 ```
 
-    ## [1] 4.293693e-07
+    ## [1] 0.4053923
 
 ### 7) Exploring Position and Experience
 
@@ -200,7 +193,7 @@ Rsquare
 ``` r
 RExp <- replace(experience, experience == "R", 0)
 IntExp <- as.integer(RExp)
-plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions")
+plot(IntExp, salaryMil, main = "Experience vs Salary", xlab = "Experience", ylab = "Salary (in millions)")
 lines(lowess(IntExp, salaryMil), col = "blue")
 text(15, 8, labels = "lowess", col = "blue")
 ```
