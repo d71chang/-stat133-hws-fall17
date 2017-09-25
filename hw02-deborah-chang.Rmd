@@ -76,7 +76,7 @@ Based on the correlation between these two variables, there seems to be a somewh
 ```{r}
 players2 <- base[base$MPG > 20, ]
 
-scatter.smooth(players2$EFF, players2$Salary, main = "Efficiency and Salary of the more 'Solid' Players", xlab = "EFF", ylab = "Salary", col = "blue")
+scatter.smooth(players2$EFF, players2$Salary, main = "Efficiency and Salary of more 'Solid' Players", xlab = "EFF", ylab = "Salary", col = "blue")
 
 lines(lowess(players2$EFF, players2$Salary), col = "red")
 text(20, 1.8*10^7, labels = "lowess")
