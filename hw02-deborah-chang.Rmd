@@ -88,7 +88,7 @@ In the case of the "more established" players, there seems to be less of an asso
 
 ### 6) Comments and Reflections
 - Some things that were hard were indexing rows based on certain conditions.
-- Some straightforward concepts included creating plots. 
+- Some straightforward concepts included creating plots and analyzing these images. 
 - I utilized GSI and Instructor office hours; the assignment took me about 3 hours.
 - The most time consuming part was importing and cleaning the data.
 - I still have some questions about row slicing for certain conditions.
