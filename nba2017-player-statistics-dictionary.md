@@ -38,5 +38,5 @@ STL: Steals
 BLK: Blocks
 TO: Turnovers
 
-The column labels are basic player information and performance statistics for the 2017 season. Quite a few columns are abbreviated, such as GP (Games Played), GS (Games Started), MIN (Minutes played), FGM (Field Goals Made), FGA (Field Goals Attempts), Points3 (3-Point Field Goals), Points3-atts (3-Point Field Goals Attempts), FTM (Free Throws Made), FTA (Free Throw Attempts), ORB (Offensive Rebounds), DRB (Defensive Rebounds), TRB (Total Rebounds), AST (Assists), STL (Steals), BLK (Blocks), TO (Turnovers). The units of measurement include dollars for salary, minutes in amount played, and years for experience and age. There do not seem to be missing values.
+The column labels are basic player information and performance statistics for the 2017 season. Quite a few columns are abbreviated, such as GP (Games Played), GS (Games Started), MIN (Minutes played), FGM (Field Goals Made), FGA (Field Goals Attempts), Points3 (3-Point Field Goals), Points3-atts (3-Point Field Goals Attempts), FTM (Free Throws Made), FTA (Free Throw Attempts), ORB (Offensive Rebounds), DRB (Defensive Rebounds), TRB (Total Rebounds), AST (Assists), STL (Steals), BLK (Blocks), TO (Turnovers). The units of measurement include dollars for salary, minutes in amount played, and years for experience and age. There do not seem to be any missing values.
 
