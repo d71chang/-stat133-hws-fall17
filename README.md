@@ -14,20 +14,21 @@ HW02 - Basics of Data Frames
 This assignment further goes into analyzing other factors aside from points that impact amount of salary earned for NBA players.
 
 Variables
-base: base R method of reading data file
-readrWay: readr method of reading data file
-base$Missed_FG: Missed field goals
-base$Missed_FT: Missed free throws 
-base$PTS: Total points 
-base$REB: Total rebound
-base$MPG: Minutes per game 
-sortEFF: EFF sorted in decreasing order
-topTenByEFF: Top ten highest EFFs
-topTenByEFFPlayer: Player names with top ten EFFs
-topTenByEFFTeam: Team of players with top ten EFFs
-topTenByEFFSalary: Salary of players with top ten EFFs
-correlations: Correlations between EFFs and variables in formula sorted in decreasing order
-players2: Statistics of more "solid" players
+
+- base: base R method of reading data file
+- readrWay: readr method of reading data file
+- base$Missed_FG: Missed field goals
+- base$Missed_FT: Missed free throws 
+- base$PTS: Total points 
+- base$REB: Total rebound
+- base$MPG: Minutes per game 
+- sortEFF: EFF sorted in decreasing order
+- topTenByEFF: Top ten highest EFFs
+- topTenByEFFPlayer: Player names with top ten EFFs
+- topTenByEFFTeam: Team of players with top ten EFFs
+- topTenByEFFSalary: Salary of players with top ten EFFs
+- correlations: Correlations between EFFs and variables in formula sorted in decreasing order
+- players2: Statistics of more "solid" players
 
 Resources/References
 
