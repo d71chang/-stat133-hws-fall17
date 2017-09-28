@@ -80,32 +80,6 @@ You should submit the repository link of each HW to bCourses, providing the comm
 
 You can keep working on a HW once its due date has passed. However, we won't grade anything after the due date. Why bother? Because it is good professional practice. And it will help you have a nice portfolio for the course that you could show to the rest of the world (don't underestimate this).
 =======
-HW02 - Basics of Data Frames
-
-This assignment further goes into analyzing other factors aside from points that impact amount of salary earned for NBA players.
-
-Variables
-
-- base: base R method of reading data file
-- readrWay: readr method of reading data file
-- base$Missed_FG: Missed field goals
-- base$Missed_FT: Missed free throws 
-- base$PTS: Total points 
-- base$REB: Total rebound
-- base$MPG: Minutes per game 
-- sortEFF: EFF sorted in decreasing order
-- topTenByEFF: Top ten highest EFFs
-- topTenByEFFPlayer: Player names with top ten EFFs
-- topTenByEFFTeam: Team of players with top ten EFFs
-- topTenByEFFSalary: Salary of players with top ten EFFs
-- correlations: Correlations between EFFs and variables in formula sorted in decreasing order
-- players2: Statistics of more "solid" players
-
-Resources/References
-
-http://rmarkdown.rstudio.com/
-http://www.statmethods.net/management/sorting.html
-https://stackoverflow.com/questions/9981929/how-to-display-all-x-labels-in-r-barplot
 
 >>>>>>> 87a15510844bf03a9fae4e3d255091d1e8a21a46
 
