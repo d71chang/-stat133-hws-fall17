@@ -71,7 +71,7 @@ text(20, 1.8*10^7, labels = "lowess")
 cor(base$EFF, base$Salary)
 ```
 
-Based on the correlation between these two variables, there seems to be a somewhat positive relationship between efficiency and salary earned.
+Based on the correlation between these two variables, there seems to be a somewhat positive relationship between efficiency and salary earned for the players.
 
 ```{r}
 players2 <- base[base$MPG > 20, ]
