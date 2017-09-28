@@ -16,7 +16,7 @@ str(readrWay)
 
 ### 3) Right after importing the data
 ```{r}
-base$Experience <- as.integer(replace(base$Experience, base$Experience == "R", "1"))
+base$Experience <- as.integer(replace(base$Experience, base$Experience == "R", "0"))
 ```
 
 ### 4) Performance of Players
@@ -29,38 +29,47 @@ base$MPG <- base$MIN / base$GP
 
 base$EFF <- (base$PTS + base$REB + base$AST + base$STL + base$BLK - base$Missed_FG - base$Missed_FT - base$TO) / base$GP
 summary(base$EFF)
+hist(base$EFF, main = "Histogram of Efficiency (EFF)", xlab = "EFF", ylab = "Frequency")
 
-hist(base$EFF)
+```
+
+```{r}
 
 sortEFF <- sort(base$EFF, decreasing = TRUE)
-topTenByEFF <- base$Player[sortEFF[1:10]]
+topTenByEFFValues <- sortEFF[1:10]
 topTenByEFFPlayer <- base$Player[sortEFF[1:10]]
 topTenByEFFTeam <- base$Team[sortEFF[1:10]]
 topTenByEFFSalary <- base$Salary[sortEFF[1:10]]
-frame <- data.frame(topTenByEFFPlayer, topTenByEFFTeam, topTenByEFFSalary, topTenByEFF)
+frame <- data.frame(topTenByEFFPlayer, topTenByEFFTeam, topTenByEFFSalary, topTenByEFFValues)
 
 frame
+```
 
+```{r}
 base[base$EFF < 0, 1]
+```
 
+
+```{r}
 cor(base$EFF, base$PTS)
 cor(base$EFF, base$REB)
 cor(base$EFF, base$AST)
 cor(base$EFF, base$STL)
 cor(base$EFF, base$BLK)
-cor(base$EFF, base$Missed_FG)
-cor(base$EFF, base$Missed_FT)
-cor(base$EFF, base$TO)
+cor(base$EFF, -base$Missed_FG)
+cor(base$EFF, -base$Missed_FT)
+cor(base$EFF, -base$TO)
+```
 
-
+```{r}
 correlations <- c(cor(base$EFF, base$PTS), cor(base$EFF, base$REB),cor(base$EFF, base$AST),cor(base$EFF, base$STL),
 + cor(base$EFF, base$BLK),
-+ cor(base$EFF, base$Missed_FG),
-+ cor(base$EFF, base$Missed_FT),
-+ cor(base$EFF, base$TO))
++ cor(base$EFF, -base$Missed_FG),
++ cor(base$EFF, -base$Missed_FT),
++ cor(base$EFF, -base$TO))
 
 correlations <- sort(correlations, decreasing = TRUE)
-barplot(correlations, main = "Correlations between Player Stats and EFF", width = 0.5, names.arg  = c("PTS", "REB", "STL", "AST", "BLK", "Missed_FT", "Missed_FG", "TO"), las = 2)
+barplot(correlations, main = "Correlations between Player Stats and EFF", width = 0.5, names.arg  = c("PTS", "REB", "STL", "AST", "BLK", "Missed_FT", "Missed_FG", "TO"), las = 2, ylim = c(-1,1), col = c("gray", "gray", "gray", "gray", "gray", "red", "red", "red"))
 ```
 
 ### 5) Efficiency and Salary
