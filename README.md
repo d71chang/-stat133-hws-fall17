@@ -77,4 +77,3 @@ As soon as you start working on a HW:
 ## Submitting your work
 
 You should submit the repository link of each HW to bCourses, providing the commit number that corresponds to the closest time-stamp before the due date.You can keep working on a HW once its due date has passed. However, we won't grade anything after the due date. Why bother? Because it is good professional practice. And it will help you have a nice portfolio for the course that you could show to the rest of the world (don't underestimate this).
-=======
