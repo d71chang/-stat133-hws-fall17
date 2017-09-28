@@ -9,7 +9,6 @@ Repository for HW assignments of Stat 133 (Fall 2017)
 
 -----
 
-<<<<<<< HEAD
 ## Get your own repository
 
 Get your own copy (clone) of this repository. This means that you will have 
