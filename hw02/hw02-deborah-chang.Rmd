@@ -1,5 +1,5 @@
 ---
-title: "hw02-deborah-chang.Rmd"
+title: "HW 2"
 output: github_document
 ---
 ```{r}
