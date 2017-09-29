@@ -246,7 +246,7 @@ barplot(correlations, main = "Correlations between Player Stats and EFF", width 
 ### 5) Efficiency and Salary
 
 ``` r
-scatter.smooth(base$EFF, base$Salary, main = "Scatterplot of Efficiency and Salary", xlab = "EFF", ylab = "Salary", col = "blue")
+scatter.smooth(base$EFF, base$Salary, main = "Scatterplot of Efficiency and Salary (in millions of dollars", xlab = "EFF", ylab = "Salary", col = "blue")
 text(20, 1.8*10^7, labels = "lowess")
 ```
 
