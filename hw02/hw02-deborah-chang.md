@@ -246,7 +246,7 @@ barplot(correlations, main = "Correlations between Player Stats and EFF", width 
 ### 5) Efficiency and Salary
 
 ``` r
-scatter.smooth(base$EFF, base$Salary, main = "Scatterplot of Efficiency and Salary (in millions of dollars", xlab = "EFF", ylab = "Salary", col = "blue")
+scatter.smooth(base$EFF, base$Salary, main = "Scatterplot of Efficiency and Salary (in millions of dollars)", xlab = "EFF", ylab = "Salary", col = "blue")
 text(20, 1.8*10^7, labels = "lowess")
 ```
 
@@ -281,7 +281,7 @@ In the case of the "more established" players, there seems to be less of an asso
 
 ### 6) Comments and Reflections
 
--   Some things that were hard were indexing rows based on certain conditions.
+-   Some things that were hard were indexing rows based on certain conditions and determining the relationships of the correlations.
 -   Some straightforward concepts included creating plots and analyzing these images.
 -   I utilized GSI and instructor office hours; the assignment took me about 3 hours.
 -   The most time consuming part was importing and cleaning the data.

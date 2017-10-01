@@ -96,7 +96,7 @@ cor(players2$EFF, players2$Salary)
 In the case of the "more established" players, there seems to be less of an association, where other factors aside from those calculated in the EFF formula play a role in performance.
 
 ### 6) Comments and Reflections
-- Some things that were hard were indexing rows based on certain conditions.
+- Some things that were hard were indexing rows based on certain conditions and determining the relationships of the correlations.
 - Some straightforward concepts included creating plots and analyzing these images. 
 - I utilized GSI and instructor office hours; the assignment took me about 3 hours.
 - The most time consuming part was importing and cleaning the data.
