@@ -1,0 +1,9 @@
+---
+title: "HW 03"
+output: github_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
