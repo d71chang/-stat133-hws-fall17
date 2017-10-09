@@ -7,7 +7,7 @@ Below are a list of the variables:
 - player: Full name of the player
 - team: Three-letter abbreviation of the team
 - position: Abbreviation of position ('C' = center, 'PG' = point guard, 'SF' = small forward, 'PF' =
-- power forward, 'SG' = shooting guard)
+power forward, 'SG' = shooting guard)
 - height: Height of player (in inches)
 - weight: Weight of player (in pounds)
 - age: Age of player (in years)
