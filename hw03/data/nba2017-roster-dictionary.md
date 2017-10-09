@@ -1,9 +1,3 @@
---
-title: "nba2017-roster-dictionary.md"
-output: github_document
-
---
-
 ### 2017 NBA roster
 ##### This data set contains the profile of each NBA player in the 2017 season. Variables include height, age, experience, team, salary, and more.
 

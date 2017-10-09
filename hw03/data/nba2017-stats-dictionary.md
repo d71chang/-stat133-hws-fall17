@@ -1,9 +1,3 @@
---
-title: "nba2017-stats-dictionary.md"
-output: github_document
-
---
-
 ### 2017 NBA Statistics 
 ##### This data set contains the performance statistics of each player in the 2017 season. Variables include points, free throws, assists, steals, and more. 
 
