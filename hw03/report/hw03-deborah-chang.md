@@ -74,23 +74,22 @@ names(teams) [1:15] = c("team","experience", "salary", "points3", "points2", "fr
                         "steals", "blocks", "turnovers","fouls", "efficiency")
 
 
-ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + ggtitle(label = "NBA Teams Ranked by Total Salary") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$salary), linetype = "solid", color = "red", size = 10)
+ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + ggtitle(label = "NBA Teams Ranked by Total Salary") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_abline(intercept = c(mean(teams$salary)), linetype = "solid", color = "red", size = 2)
 ```
 
 ![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
 
 ``` r
-pointsRank <- sort(teams$points, decreasing = TRUE)
 library(scales)
-ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$points), linetype = "solid", color = "red", size = 10)
+plotPoints <- ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip() + labs(x = "Team", y = "Points") 
+plotPoints + geom_vline(xintercept = mean(teams$points), linetype = "solid", color = "red", size = 2)
 ```
 
 ![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
 
 ``` r
-effRank <- sort(teams$efficiency, decreasing = TRUE)
 library(scales)
-ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficiency)) + ggtitle(label = "NBA Teams Ranked by Total Efficiency") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$efficiency), linetype = "solid", color = "red", size = 3)
+ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficiency)) + ggtitle(label = "NBA Teams Ranked by Total Efficiency") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Efficiency") + geom_abline(intercept = c(mean(teams$efficiency)), linetype = "solid", color = "red", size = 3)
 ```
 
 ![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
