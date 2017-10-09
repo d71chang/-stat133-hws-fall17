@@ -33,7 +33,7 @@ sink()
 # Merging Tables
 merged <- merge(nbaRoster, nbaStats)
 merged$salary <- merged$salary / 10^6
-team <- sort(team)
+team <- sort(merged$team)
 experience <- select(aggregate(merged$experience, by = list(merged$team), FUN = "sum"), 2)
 salary <- select(aggregate(merged$salary, by = list(merged$team), FUN = "sum"), 2)
 points3 <- select(aggregate(merged$points3_made, by = list(merged$team), FUN = "sum"), 2)
