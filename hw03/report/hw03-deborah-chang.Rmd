@@ -5,5 +5,73 @@ output: github_document
 
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
 ```
 
+##Basic Rankings
+```{r}
+library(scales)
+
+ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + ggtitle(label = "NBA Teams Ranked by Total Salary") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$salary), linetype = "solid", color = "red", size = 10)
+```
+
+```{r}
+pointsRank <- sort(teams$points, decreasing = TRUE)
+library(scales)
+ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$points), linetype = "solid", color = "red", size = 10)
+```
+
+```{r}
+effRank <- sort(teams$efficiency, decreasing = TRUE)
+library(scales)
+ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficiency)) + ggtitle(label = "NBA Teams Ranked by Total Efficiency") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$efficiency), linetype = "solid", color = "red", size = 3)
+```
+
+#### Descriptions
+Comparing the different trends in salary, points, and efficiency, there does not seem to be a strong correlation for a particular team. However, higher-paid teams, such as CLE, will be on the upper end in total efficiency and total number of points. In particular, the figure "Total Salary", contains the average salary overall to be on the upper end, in the mid 80s. In "Total Points," there is less of a disparity among other teams, in terms of the total number of points. Finally, in "Total Efficiency," the overall factors seem to balance out team performance in general. 
+
+##Principal Components Analysis (PCA)
+```{r}
+
+variables <- data.frame(teams$points3, teams$points2, teams$free_throws, teams$off_rebounds,teams$def_rebounds, teams$assists, teams$steals, teams$blocks, teams$turnovers, teams$fouls)
+
+pca <- prcomp(variables, scale. = TRUE)
+eigs <- data.frame(eigenvalue = pca$sdev^2, proportion = pca$sdev^2/sum(pca$sdev^2), cumprop = cumsum(apply(pca$x,2,var)/ sum(apply(pca$x,2,var))))
+
+ggplot(teams, aes(pca$x[,1], pca$x[,2])) + geom_point() + geom_text(aes(label=teams$team)) + labs(title = "PCA plot(PC1 and PC2)", x="PC1", y="PC2")
+
+##interpreting PCs with calculating correlation and such
+cor(teams$points3, pca$x[,1])
+cor(teams$points2, pca$x[,1])
+cor(teams$free_throws, pca$x[,1])
+cor(teams$off_rebounds, pca$x[,1])
+cor(teams$def_rebounds, pca$x[,1])
+cor(teams$assists, pca$x[,1])
+cor(teams$steals, pca$x[,1])
+cor(teams$blocks, pca$x[,1])
+cor(teams$turnovers, pca$x[,1])
+cor(teams$fouls, pca$x[,1])
+
+pca$rotation
+```
+
+### Index based on PC1
+```{r}
+pc1 <- pca$x[ ,1]
+transformed <- 100 *((pc1 -min(pc1))/ (max(pc1) - min(pc1)))
+ggplot(teams, aes(x = reorder(teams$team, transformed), y = transformed)) + ggtitle(label = "NBA Teams Ranked by scaled PC1") + geom_bar(stat = 'identity') + coord_flip() + labs(x = "Team", y = "First PC (Scaled from 0 to 100)") 
+```
+
+As the barplot shows, PC1 captures the maximum variability among the variables yet condenses such information.  As mentioned in lecture, the PCs are evaluated as a linear combination of weights and variables. As shown in the figure, the Warriors seem to have the highest rank based on overall input from each variable, balanced by the PC weights. This technique seems to provide a more generalized and holistic perspective in analyzing the team rankings.
+
+## Comments and Reflections
+
+- The harder and more time consuming parts were determining the eigenvalues and the PCs, 
+  and organizing them into a data frame.
+- Yes, this is my first time starting from scratch - from setting up the file structure to analysis.
+- I have used relative paths before, as well as R scripts. 
+- Preparing the data was more straightforward.
+- I used GSI office hours. 
+- I enjoyed being able to use different visualizations and techniques to rank the teams. 
