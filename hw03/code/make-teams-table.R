@@ -3,6 +3,7 @@
 # NBA 2017 teams. The functions will produce a comprehensive summary of the data.
 # Input: nba2017-teams.csv
 # Output: Data Table 
+# Date: 10-15-2017
 roster <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-roster.csv",
                         'nba2017-roster.csv')
 stats <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-stats.csv",
@@ -13,8 +14,10 @@ library(readr)
 
 # Raw data and dictionaries
 
-nbaRoster <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-roster.csv')
-nbaStats <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-stats.csv')
+nbaRoster <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-roster.csv'
+                      , stringsAsFactors = FALSE)
+nbaStats <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-stats.csv', 
+                     stringsAsFactors = FALSE)
 
 
 # Adding New Variables
@@ -33,9 +36,9 @@ sink()
 # Merging Tables
 merged <- merge(nbaRoster, nbaStats)
 merged$salary <- merged$salary / 10^6
-team <- sort(merged$team)
+team <- unique(sort(merged$team))
 experience <- select(aggregate(merged$experience, by = list(merged$team), FUN = "sum"), 2)
-salary <- select(aggregate(merged$salary, by = list(merged$team), FUN = "sum"), 2)
+salary <- round(select(aggregate(merged$salary, by = list(merged$team), FUN = "sum"), 2), 2)
 points3 <- select(aggregate(merged$points3_made, by = list(merged$team), FUN = "sum"), 2)
 points2 <- select(aggregate(merged$points2_made, by = list(merged$team), FUN = "sum"), 2)
 free_throws <- select(aggregate(merged$points1_made, by = list(merged$team), FUN = "sum"), 2)
@@ -47,11 +50,11 @@ steals <- select(aggregate(merged$steals, by = list(merged$team), FUN = "sum"), 
 blocks <- select(aggregate(merged$blocks, by = list(merged$team), FUN = "sum"), 2)
 turnovers <- select(aggregate(merged$turnovers, by = list(merged$team), FUN = "sum"), 2)
 fouls <- select(aggregate(merged$fouls, by = list(merged$team), FUN = "sum"), 2)
-efficiency <- select(aggregate(merged$efficiency, by = list(merged$team), FUN = "sum"), 2)
+efficiency <- round(select(aggregate(merged$efficiency, by = list(merged$team), FUN = "sum"), 2), 2)
 
 
 teams <- data.frame(team, experience, salary,points3,points2,free_throws,points, 
-                    off_rebounds,def_rebounds,assists,steals,blocks,turnovers,fouls,efficiency)
+                    off_rebounds,def_rebounds,assists,steals,blocks,turnovers,fouls,efficiency, stringsAsFactors = FALSE)
 names(teams) [1:15] = c("team","experience", "salary", "points3", "points2", "free_throws", 
                         "points", "off_rebounds", "def_rebounds", "assists", 
                         "steals", "blocks", "turnovers","fouls", "efficiency")
@@ -61,7 +64,7 @@ summary(teams)
 sink()
 
 
-write_csv(teams, '/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba
+write.csv(teams, '/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba
           2017-teams.csv')
           
 # Some graphics

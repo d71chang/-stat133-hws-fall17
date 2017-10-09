@@ -54,13 +54,14 @@ ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + gg
 ```
 
 ```{r}
-pointsRank <- sort(teams$points, decreasing = TRUE)
+
 library(scales)
-ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$points), linetype = "solid", color = "red", size = 10)
+plotPoints <- ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip() + labs(x = "Team", y = "Salary") 
+plotPoints + geom_vline(aes(xintercept = c(mean(teams$points))), linetype = "solid", color = "red", size = 2)
 ```
 
 ```{r}
-effRank <- sort(teams$efficiency, decreasing = TRUE)
+
 library(scales)
 ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficiency)) + ggtitle(label = "NBA Teams Ranked by Total Efficiency") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_vline(xintercept = mean(teams$efficiency), linetype = "solid", color = "red", size = 3)
 ```
