@@ -48,7 +48,9 @@ teams <- data.frame(team, experience, salary,points3,points2,free_throws,points,
 names(teams) [1:15] = c("team","experience", "salary", "points3", "points2", "free_throws", 
                         "points", "off_rebounds", "def_rebounds", "assists", 
                         "steals", "blocks", "turnovers","fouls", "efficiency")
+```
 
+```{r}
 
 ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + ggtitle(label = "NBA Teams Ranked by Total Salary") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_hline(yintercept = mean(teams$salary), linetype = "solid", color = "red", size = 2)
 ```
@@ -66,6 +68,7 @@ ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficienc
 ```
 
 #### Descriptions
+
 Comparing the different trends in salary, points, and efficiency, there does not seem to be a strong correlation for a particular team. However, higher-paid teams, such as CLE, will be on the upper end in total efficiency and total number of points. In particular, the figure "Total Salary", contains the average salary overall to be on the upper end, in the mid 80s. In "Total Points," there is less of a disparity among other teams, in terms of the total number of points. Finally, in "Total Efficiency," the overall factors seem to balance out team performance in general. 
 
 ##Principal Components Analysis (PCA)

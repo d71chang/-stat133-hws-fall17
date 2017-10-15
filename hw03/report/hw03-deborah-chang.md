@@ -72,26 +72,27 @@ teams <- data.frame(team, experience, salary,points3,points2,free_throws,points,
 names(teams) [1:15] = c("team","experience", "salary", "points3", "points2", "free_throws", 
                         "points", "off_rebounds", "def_rebounds", "assists", 
                         "steals", "blocks", "turnovers","fouls", "efficiency")
+```
 
-
+``` r
 ggplot(teams, aes(x = reorder(teams$team, teams$salary), y = teams$salary)) + ggtitle(label = "NBA Teams Ranked by Total Salary") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Salary") + geom_hline(yintercept = mean(teams$salary), linetype = "solid", color = "red", size = 2)
 ```
 
-![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
+![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
 
 ``` r
 plotPoints <- ggplot(teams, aes(x = reorder(teams$team, teams$points), y = teams$points)) + ggtitle(label = "NBA Teams Ranked by Total Points") + geom_bar(stat = 'identity') + coord_flip() + labs(x = "Team", y = "Points") 
 plotPoints + geom_hline(yintercept = mean(teams$points), linetype = "solid", color = "red", size = 2)
 ```
 
-![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
+![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
 
 ``` r
 library(scales)
 ggplot(teams, aes(x = reorder(teams$team, teams$efficiency), y = teams$efficiency)) + ggtitle(label = "NBA Teams Ranked by Total Efficiency") + geom_bar(stat = 'identity') + coord_flip()+labs(x = "Team", y = "Efficiency") + geom_hline(yintercept = mean(teams$efficiency), linetype = "solid", color = "red", size = 2)
 ```
 
-![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
+![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
 #### Descriptions
 
@@ -109,7 +110,7 @@ eigs <- data.frame(eigenvalue = pca$sdev^2, proportion = pca$sdev^2/sum(pca$sdev
 ggplot(teams, aes(pca$x[,1], pca$x[,2])) + geom_point() + geom_text(aes(label=teams$team)) + labs(title = "PCA plot(PC1 and PC2)", x="PC1", y="PC2")
 ```
 
-![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
+![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
 
 ``` r
 ##interpreting PCs with calculating correlation and such
@@ -218,7 +219,7 @@ transformed <- 100 *((pc1 -min(pc1))/ (max(pc1) - min(pc1)))
 ggplot(teams, aes(x = reorder(teams$team, transformed), y = transformed)) + ggtitle(label = "NBA Teams Ranked by scaled PC1") + geom_bar(stat = 'identity') + coord_flip() + labs(x = "Team", y = "First PC (Scaled from 0 to 100)") 
 ```
 
-![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
+![](hw03-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
 
 As the barplot shows, PC1 captures the maximum variability among the variables yet condenses such information. As mentioned in lecture, the PCs are evaluated as a linear combination of weights and variables. As shown in the figure, the Warriors seem to have the highest rank based on overall input from each variable, balanced by the PC weights. This technique seems to provide a more generalized and holistic perspective in analyzing the team rankings.
 

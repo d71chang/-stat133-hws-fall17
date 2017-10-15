@@ -1,12 +1,18 @@
 # Title: NBA 2017 Teams 
-# Description: This script contains the commands for analyzing the structure
-# NBA 2017 teams. The functions will produce a comprehensive summary of the data.
-# Input: nba2017-teams.csv
-# Output: Data Table 
+# Description: This script contains the commands for analyzing the structure of
+# NBA 2017 teams. A new data frame aggregates statistics of each player into the 
+# respective teams. The functions will produce a comprehensive summary of the data, 
+# including images and graphics of the performance statistics of the teams.
+# Input: nba2017-roster.csv, nba2017-stats.csv
+# Output: nba2017-teams.csv, efficiency-summary.txt, teams-summary.txt, 
+# teams_star_plot.pdf, experience_salary.pdf 
 # Date: 10-15-2017
-roster <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-roster.csv",
+
+roster <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall
+-2017/master/data/nba2017-roster.csv",
                         'nba2017-roster.csv')
-stats <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-stats.csv",
+stats <- download.file("https://raw.githubusercontent.com/ucb-stat133/stat133-fall
+-2017/master/data/nba2017-stats.csv",
               'nba2017-stats.csv')
 library(dplyr)
 library(ggplot2)
@@ -14,9 +20,11 @@ library(readr)
 
 # Raw data and dictionaries
 
-nbaRoster <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-roster.csv'
+nbaRoster <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw0
+                      3/data/nba2017-roster.csv'
                       , stringsAsFactors = FALSE)
-nbaStats <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall17/hw03/data/nba2017-stats.csv', 
+nbaStats <- read.csv('/Users/deborahchang/Desktop/stat133/stat133-hws-fall1
+                     7/hw03/data/nba2017-stats.csv', 
                      stringsAsFactors = FALSE)
 
 
