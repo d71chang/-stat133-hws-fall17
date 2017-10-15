@@ -34,5 +34,5 @@ turnovers, and fouls
 Resources/References
 
 - http://rmarkdown.rstudio.com/
-- stackoverflow.com/questions/10941225/horizontal-barpolot-in-ggplot2
+- http://stackoverflow.com/questions/10941225/horizontal-barpolot-in-ggplot2
 - https://stackoverflow.com/questions/40210830/dynamically-selecting-principal-components-from-the-pca-output
