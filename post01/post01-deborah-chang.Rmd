@@ -1,0 +1,53 @@
+---
+title: 'Post #1: Ggplot and its Applications: Faceting'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Introduction
+- talk about ggplot and the introduction of it
+- cite author and his philosphy of aesthetics
+- list different types of aesthetics, symbols, etc.
+- refer to cheat sheet (casually)
+- other interesting facts and examples of IMAGES HERE
+
+## Motivation
+- mention purpose
+- talk about faceting etc.
+
+## Background
+- history of faceting
+- purpose of faceting
+- applications of faceting
+
+## Examples
+- cite certain article/problem
+- list certain facet functions
+- images of facet data
+- purpose of faceting this data and the potential observations shown
+- 5 sample codes of different types of faceting functions
+
+## Discussion
+- how faceting helps different industries in the real world
+- different features faceting brings to business, finance, healthcare, etc.
+- extra step of faceting vs. without splitting by variable - reg plots (show image)
+- how else can faceting bring different perspectives
+
+## Conclusions
+- next steps of faceting
+- future new packages in ggplot for faceting
+- more examples of codes
+- cite famous data scientist
+
+## Take-home
+- restate nice things about faceting
+- restate applications to other industries
+
+## References
+https://www.google.com/search?tbm=isch&source=hp&biw=1088&bih=635&q=faceting+ggplot&oq=faceting+ggplot&gs_l=img.3..0i24k1l2.563.1897.0.1963.16.15.0.0.0.0.145.1234.7j6.13.0....0...1.1.64.img..3.13.1232.0..0j0i8i30k1.0.hIuzIAP-L_w#imgrc=0LvGei2u-nTAGM:
+
+http://www.cookbook-r.com/Graphs/Facets_(ggplot2)/
+http://ggplot2.tidyverse.org/reference/facet_grid.html
+
