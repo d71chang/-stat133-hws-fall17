@@ -78,6 +78,7 @@ variables <- data.frame(teams$points3, teams$points2, teams$free_throws, teams$o
 
 pca <- prcomp(variables, scale. = TRUE)
 eigs <- data.frame(eigenvalue = pca$sdev^2, proportion = pca$sdev^2/sum(pca$sdev^2), cumprop = cumsum(apply(pca$x,2,var)/ sum(apply(pca$x,2,var))))
+eigs
 
 ggplot(teams, aes(pca$x[,1], pca$x[,2])) + geom_point() + geom_text(aes(label=teams$team)) + labs(title = "PCA plot(PC1 and PC2)", x="PC1", y="PC2")
 

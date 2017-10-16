@@ -106,7 +106,22 @@ variables <- data.frame(teams$points3, teams$points2, teams$free_throws, teams$o
 
 pca <- prcomp(variables, scale. = TRUE)
 eigs <- data.frame(eigenvalue = pca$sdev^2, proportion = pca$sdev^2/sum(pca$sdev^2), cumprop = cumsum(apply(pca$x,2,var)/ sum(apply(pca$x,2,var))))
+eigs
+```
 
+    ##      eigenvalue  proportion   cumprop
+    ## PC1  4.69588631 0.469588631 0.4695886
+    ## PC2  1.70201009 0.170201009 0.6397896
+    ## PC3  0.97952464 0.097952464 0.7377421
+    ## PC4  0.77171938 0.077171938 0.8149140
+    ## PC5  0.53408824 0.053408824 0.8683229
+    ## PC6  0.47801622 0.047801622 0.9161245
+    ## PC7  0.38220374 0.038220374 0.9543449
+    ## PC8  0.26026243 0.026026243 0.9803711
+    ## PC9  0.13359274 0.013359274 0.9937304
+    ## PC10 0.06269622 0.006269622 1.0000000
+
+``` r
 ggplot(teams, aes(pca$x[,1], pca$x[,2])) + geom_point() + geom_text(aes(label=teams$team)) + labs(title = "PCA plot(PC1 and PC2)", x="PC1", y="PC2")
 ```
 
