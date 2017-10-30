@@ -15,7 +15,7 @@ Faceting has brought much interest to users lately, bringing a new perspective o
 Motivation
 ----------
 
-So what exactly is faceting? According to a Harvard tutorial (referenced below), “faceting is a ggplot2 parlance for small multiples: the idea is to create separate graphs for subsets of data.” Similarly, if I want to compare the effect of salaries of people to their health and well-being, I could split up the categorical variable of people into different age groups. A categorical variable is qualitative information about an observation i.e. gender, level, hometown, etc. Often, these variables could be classified into factors, which are used to handle categorical data. Then, I could graph each age group in its own visual and have multiple graphs lined up together. I could now better visualize what’s going on for each age group. For example, if I created scatterplots, there would be less results to weave through and better views of certain patterns and relationships within and among age groups in relation to salaries. Faceting is a great tool to use for anyone. Here, I will show you a couple of features of the faceting function that I found useful. But first, I will take you through a quick short tutorial on how to use ggplot and faceting in general.
+So what exactly is faceting? According to a Harvard tutorial (referenced below), “faceting is a ggplot2 parlance for small multiples: the idea is to create separate graphs for subsets of data.” Similarly, if I want to compare the effect of salaries of people to their health and well-being, I could split up the categorical variable of people into different age groups. A categorical variable is qualitative information about an observation i.e. gender, level, hometown, etc. Often, these variables could be classified into factors, which are used to handle categorical data. Then, I could graph each age group in its own visual and have multiple graphs lined up together. I could now better visualize what’s going on for each age group. For example, if I created scatterplots, there would be less results to weave through and better views of certain patterns and relationships within and among age groups in relation to salaries. Faceting is a great tool to use for anyone. Here, I will show you a couple of features of the faceting function that I found useful. But first, I will take you through a quick short tutorial on how to use ggplot and faceting in general using different datasets.
 
 Background
 ----------
@@ -29,7 +29,7 @@ I like how this visual is partitioned by state; there are multiple pieces of inf
 Examples
 --------
 
-Firstly, to begin creating my visual, I would do the usual ggplot() function and use the ‘+’ operator to add additional aesthetics. Refer to <https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf> for more information on how to plot. Here is a sample code that you can try on graphing a density plot:
+Firstly, to begin creating my visual, I would do the usual ggplot() function and use the ‘+’ operator to add additional aesthetics. Refer to <https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf> for more information on how to plot. Here is a sample code that you can try on graphing a density plot, using the NBA dataset:
 
 ``` r
 ggplot(data = dat, aes(salary)) + geom_density()
