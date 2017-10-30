@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
+data("diamonds")
+data("DNase")
 dat <- read.csv("/Users/deborahchang/Desktop/stat133/lab06/data/nba2017-players.csv")
 ```
 
