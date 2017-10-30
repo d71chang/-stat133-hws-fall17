@@ -56,7 +56,9 @@ ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + fac
   xlab("Concentration") + ylab("Density") 
 ```
 
-![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png) This scatterplot arranges the concentration and densities of the solution by the run. Hence, maybe an answer that we could be seeking is the effect of density on concentration, or vice versa. The "free" option denotes that the scales are different among both rows and columns in this example. This feature is available in facet\_grid() as well.
+![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
+
+This scatterplot arranges the concentration and densities of the solution by the run. Hence, maybe an answer that we could be seeking is the effect of density on concentration, or vice versa. The "free" option denotes that the scales are different among both rows and columns in this example. This feature is available in facet\_grid() as well.
 
 I used an additional feature, "space," to provide proportional perspectives for the panels. "Fixed" gives the panels the same size. "free\_x" only provides proportions to the x scale, and "free" will do for both.
 
