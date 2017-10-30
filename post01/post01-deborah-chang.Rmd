@@ -2,7 +2,7 @@
 title: 'Post #1: Ggplot and its Applications: Faceting and Some Features'
 author: 'Deborah Chang'
 date: '10/31/2017'
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
