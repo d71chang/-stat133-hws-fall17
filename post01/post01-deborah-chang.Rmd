@@ -5,7 +5,7 @@ date: '10/31/2017'
 output: github_document
 ---
 
-```{r setup, include=FALSE}
+```{r}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 data("diamonds")
@@ -95,7 +95,7 @@ This displays both the names of the factor(DNase$Run) and the run number at the 
 
 Faceting definitely brings out new insights that one may not easily notice in an aggregated visual. With the numerous amounts of data coming in through all various industries, never has analysis become much more convenient with the features of ggplot. Especially in analytics today, faceting can bring better observations for companies. For example, in the business or healthcare industries, faceting in R can better clear up overlaps and potential third variables. With the numerous resources and documentations of faceting functions and features, more information can be dug out of our data. 
 
-## Conclusions
+## Conclusion
 
 Data is exciting different industries today. All inputs in our daily lives utilize data in some way, and it doesn’t seem to be stopping any time soon. Data is endless. The limits of data stretch beyond the horizons. With faceting, data can be even better applied and visualized.
 

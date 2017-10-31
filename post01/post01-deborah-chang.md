@@ -3,6 +3,14 @@ Post \#1: Ggplot and its Applications: Faceting and Some Features
 Deborah Chang
 10/31/2017
 
+``` r
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+data("diamonds")
+data("DNase")
+dat <- read.csv("/Users/deborahchang/Desktop/stat133/lab06/data/nba2017-players.csv")
+```
+
 Introduction
 ------------
 
@@ -35,7 +43,7 @@ Firstly, to begin creating my visual, I would do the usual ggplot() function and
 ggplot(data = dat, aes(salary)) + geom_density()
 ```
 
-![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
+![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
 
 I always need the ggplot() function with the respective variables I want to measure. The operators are for the specification of the type of visual I want as well as the labels and titles I want to incorporate. I would finally add another ‘+’ operator before utilizing the faceting function.
 
@@ -56,7 +64,7 @@ ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + fac
   xlab("Concentration") + ylab("Density") 
 ```
 
-![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
+![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
 
 This scatterplot arranges the concentration and densities of the solution by the run. Hence, maybe an answer that we could be seeking is the effect of density on concentration, or vice versa. The "free" option denotes that the scales are different among both rows and columns in this example. This feature is available in facet\_grid() as well.
 
@@ -68,7 +76,7 @@ Here is a plot with the space argument for both scales:
 ggplot(data = diamonds, aes(x =diamonds$color, y = diamonds$price)) + geom_point() + facet_grid(~diamonds$cut, space = "free") + xlab("Color") + ylab("Price")
 ```
 
-![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
+![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
 
 ``` r
 # adding density plot function
@@ -90,7 +98,7 @@ ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + fac
   xlab("Concentration") + ylab("Density") 
 ```
 
-![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
+![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
 This displays both the names of the factor(DNase$Run) and the run number at the top of the visuals for each plot.
 
@@ -99,8 +107,8 @@ Discussion
 
 Faceting definitely brings out new insights that one may not easily notice in an aggregated visual. With the numerous amounts of data coming in through all various industries, never has analysis become much more convenient with the features of ggplot. Especially in analytics today, faceting can bring better observations for companies. For example, in the business or healthcare industries, faceting in R can better clear up overlaps and potential third variables. With the numerous resources and documentations of faceting functions and features, more information can be dug out of our data.
 
-Conclusions
------------
+Conclusion
+----------
 
 Data is exciting different industries today. All inputs in our daily lives utilize data in some way, and it doesn’t seem to be stopping any time soon. Data is endless. The limits of data stretch beyond the horizons. With faceting, data can be even better applied and visualized.
 
