@@ -56,8 +56,8 @@ Another type of faceting is called facet_wrap(). This function brings each plot 
 The new feature that I learned is the "scales" argument of the faceting function. Here is a faceting plot that I created with this new function:
 
 ```{r}
-ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + facet_wrap(~ DNase$Run, scales = "free") +
-  xlab("Concentration") + ylab("Density") 
+ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + 
+  facet_wrap(~ DNase$Run, scales = "free") + xlab("Concentration") + ylab("Density") 
 ```
 
 This scatterplot arranges the concentration and densities of the solution by the run. Hence, maybe an answer that we could be seeking is the effect of density on concentration, or vice versa. The "free" option denotes that the scales are different among both rows and columns in this example. This feature is available in facet_grid() as well.  
@@ -85,7 +85,8 @@ Label_wrap_gen(): Wraps line
 
 Here is an application of labeller, using the "DNase" datset again:
 ```{r}
-ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + facet_wrap(~ DNase$Run, labeller = label_both) +
+ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + 
+  facet_wrap(~ DNase$Run, labeller = label_both) +
   xlab("Concentration") + ylab("Density") 
 ```
 
