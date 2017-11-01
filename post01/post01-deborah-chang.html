@@ -124,6 +124,11 @@ $(document).ready(function () {
 </div>
 
 
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+data(&quot;diamonds&quot;)
+data(&quot;DNase&quot;)
+dat &lt;- read.csv(&quot;/Users/deborahchang/Desktop/stat133/lab06/data/nba2017-players.csv&quot;)</code></pre>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>R has numerous features that can beautify our data and graphically appeal to the audience. From different analysis tools to functions that can summarize a whole bunch of data, R packages seem to contain more options than we can ever imagine. As I continue to dive deeply into more data analysis, download more datasets, and perform certain techniques to determine a holistic answer to a research question, I enjoyed the efficient help documentations and new tips on creating concise reports and analyses. One certain package, ggplot2, has caught my eye for a little while. As I delved into the lab, I discovered new functions and features that were aesthetically concise and pleasing to the eye of the audience. Developed by Hadley Wickham, the ggplot2 package has numerous selections of chart types, modifications, and features to the user’s delight. As I excitedly finished learning how to create scatterplots and star plots with neat functions, I stumbled across the very last exercise in the lab, which was faceting. I was amazed at the different perspectives that faceting provided, and how much information data can hold across one variable. Below is an example of faceting (what caught my eye in the first place):</p>
@@ -188,8 +193,8 @@ $(document).ready(function () {
 <h2>Discussion</h2>
 <p>Faceting definitely brings out new insights that one may not easily notice in an aggregated visual. With the numerous amounts of data coming in through all various industries, never has analysis become much more convenient with the features of ggplot. Especially in analytics today, faceting can bring better observations for companies. For example, in the business or healthcare industries, faceting in R can better clear up overlaps and potential third variables. With the numerous resources and documentations of faceting functions and features, more information can be dug out of our data.</p>
 </div>
-<div id="conclusions" class="section level2">
-<h2>Conclusions</h2>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
 <p>Data is exciting different industries today. All inputs in our daily lives utilize data in some way, and it doesn’t seem to be stopping any time soon. Data is endless. The limits of data stretch beyond the horizons. With faceting, data can be even better applied and visualized.</p>
 <p>The next steps of faceting could be generating more 3D models of visuals. How cool does that sound? I never knew about faceting until coming across this course, and specifically, the ggplot2 package. There must be more features ahead…</p>
 </div>
