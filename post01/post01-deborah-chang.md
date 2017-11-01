@@ -60,8 +60,8 @@ Another type of faceting is called facet\_wrap(). This function brings each plot
 The new feature that I learned is the "scales" argument of the faceting function. Here is a faceting plot that I created with this new function:
 
 ``` r
-ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + facet_wrap(~ DNase$Run, scales = "free") +
-  xlab("Concentration") + ylab("Density") 
+ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + 
+  facet_wrap(~ DNase$Run, scales = "free") + xlab("Concentration") + ylab("Density") 
 ```
 
 ![](post01-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
@@ -94,7 +94,8 @@ Label\_value(): Shows factor value Label\_both(): Name and value Label\_context(
 Here is an application of labeller, using the "DNase" datset again:
 
 ``` r
-ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + facet_wrap(~ DNase$Run, labeller = label_both) +
+ggplot(data = DNase, aes(x =DNase$conc, y = DNase$density)) + geom_point() + 
+  facet_wrap(~ DNase$Run, labeller = label_both) +
   xlab("Concentration") + ylab("Density") 
 ```
 
@@ -122,9 +123,13 @@ Facets really do bring a new perspective of visualizing data. The different exam
 References
 ----------
 
+-   cloud.githubusercontent.com/assets/1275592/26282369/611ab89e-3dc5-11e7-86eb-65685cc2948b.png
+-   eriqande.github.io/rep-res-web/lectures/lecture\_figs/ggplot-more-unnamed-chunk-16-1.png
 -   Facets (ggplot2). N.p., n.d. Web.
 -   "Ggplot2: Facet\_wrap Strip Color Based on Variable in Data Set." R - Ggplot2: Facet\_wrap Strip Color Based on Variable in Data Set - Stack Overflow. N.p., n.d. Web.
 -   Holtz, |. "\#223 Faceting with Ggplot2." The R Graph Gallery. N.p., 10 Feb. 2017. Web.
+-   i.stack.imgur.com/EC4xF.png
+-   i.stack.imgur.com/pXez8.png
 -   "Lay out Panels in a Grid." Lay out Panels in a Grid - Facet\_grid • Ggplot2. N.p., n.d. Web.
 -   "Useful Labeller Functions." Useful Labeller Functions - Labellers • Ggplot2. N.p., n.d. Web.
 -   "Using Faceting in Ggplot2 to Create Trellis-like Plots." R-bloggers. N.p., 11 May 2011. Web.

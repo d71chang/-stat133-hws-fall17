@@ -2,7 +2,7 @@
 title: 'Post #1: Ggplot and its Applications: Faceting and Some Features'
 author: 'Deborah Chang'
 date: '10/31/2017'
-output: html_document
+output: github_document
 ---
 
 ```{r}
@@ -108,10 +108,15 @@ Facets really do bring a new perspective of visualizing data. The different exam
 
 ## References
 
+- cloud.githubusercontent.com/assets/1275592/26282369/611ab89e-3dc5-11e7-86eb-65685cc2948b.png
+- eriqande.github.io/rep-res-web/lectures/lecture_figs/ggplot-more-unnamed-chunk-16-1.png
 -	Facets (ggplot2). N.p., n.d. Web.
 -	"Ggplot2: Facet_wrap Strip Color Based on Variable in Data Set." R - Ggplot2: Facet_wrap Strip Color Based on Variable in Data Set - Stack Overflow. N.p., n.d. Web.
 -	Holtz, |. "#223 Faceting with Ggplot2." The R Graph Gallery. N.p., 10 Feb. 2017. Web.
+- i.stack.imgur.com/EC4xF.png
+- i.stack.imgur.com/pXez8.png
 -	"Lay out Panels in a Grid." Lay out Panels in a Grid - Facet_grid • Ggplot2. N.p., n.d. Web.
 -	"Useful Labeller Functions." Useful Labeller Functions - Labellers • Ggplot2. N.p., n.d. Web.
 -	"Using Faceting in Ggplot2 to Create Trellis-like Plots." R-bloggers. N.p., 11 May 2011. Web.
 -	"Wrap a 1d Ribbon of Panels into 2d." Wrap a 1d Ribbon of Panels into 2d - Facet_wrap • Ggplot2. N.p., n.d. Web.
+
