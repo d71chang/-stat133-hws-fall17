@@ -93,8 +93,8 @@ ui <- fluidPage(
                                      "Lab" = "ATT", "QZ1" = "QZ1", "QZ2" = "QZ2",
                                      "QZ3" = "QZ3", "QZ4" = "QZ4", "EX1" = "EX1",
                                      "EX2" = "EX2", "Test1" = "Test1", "Test2" = "Test2",
-                                      "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall",
-                                     "Grade" = "Grade"), selected = "HW1")
+                                      "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall"
+                                     ), selected = "HW1")
           ),
           mainPanel(
             ggvisOutput("histPlot"),
@@ -115,8 +115,8 @@ ui <- fluidPage(
                                              "Lab" = "ATT", "QZ1" = "QZ1", "QZ2" = "QZ2",
                                              "QZ3" = "QZ3", "QZ4" = "QZ4", "EX1" = "EX1",
                                              "EX2" = "EX2", "Test1" = "Test1", "Test2" = "Test2",
-                                             "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall",
-                                             "Grade" = "Grade"), selected = "HW1"),
+                                             "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall"
+                                             ), selected = "HW1"),
                   selectInput("y", label = h3("Y-axis variable"), 
                               choices = list("HW1" = "HW1", "HW2" = "HW2", "HW3" = "HW3"
                                              ,"HW4" = "HW4", "HW5" = "HW5", "HW6" = "HW6",
@@ -124,8 +124,8 @@ ui <- fluidPage(
                                              "Lab" = "ATT", "QZ1" = "QZ1", "QZ2" = "QZ2",
                                              "QZ3" = "QZ3", "QZ4" = "QZ4", "EX1" = "EX1",
                                              "EX2" = "EX2", "Test1" = "Test1", "Test2" = "Test2",
-                                             "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall",
-                                             "Grade" = "Grade"), selected = "HW1"),
+                                             "Homework" = "Homework", "Quiz" = "Quiz", "Overall" = "Overall"
+                                             ), selected = "HW1"),
                   
                   sliderInput("opacity", label = h3("Opacity"), min = 0, 
                               max = 1, value = 0.5),
@@ -196,11 +196,14 @@ server <- function(input, output) {
    sc_plot <- reactive({
    #  xv <- props("x", as.symbol(input$x))
    #  yv <- props("y", as.symbol(input$y)
-         cleanScores %>%
-           ggvis(prop("x", as.name(input$x)), prop("y", as.name(input$y))) %>%
-           layer_points(size :=20, opacity := input$opacity)  
-        # layer_model_predictions(model = input$line)
-   
+     
+     scatter <- cleanScores %>%
+       ggvis(prop("x", as.name(input$x)), prop("y", as.name(input$y))) %>%
+       layer_points(size :=20, opacity := input$opacity) 
+     switch(input$line, 
+            "none" = scatter, 
+            "lm" = scatter %>% layer_model_predictions(model = "lm", stroke:= "blue"),
+            "loess" = scatter %>% layer_model_predictions(model = "loess", stroke:= "red"))
    })
    sc_plot %>% bind_shiny("scatterPlot")
    
