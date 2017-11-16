@@ -1,4 +1,4 @@
-[1] "Test 2"
+[1] "Test2"
                result
 1    minimum: 14.0000
 2  percent10: 45.6500

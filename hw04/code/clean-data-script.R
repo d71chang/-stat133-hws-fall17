@@ -1,4 +1,11 @@
-### This script....
+# Title: clean-data-script.R
+# Description: This script cleans and summaries the raw scores csv file by replacing
+# missing values with NA, adding new columns, rescaling scores using
+# functions.R, and sinks updated performance statistics to the "output" folder.
+# Input: rawscores.csv
+# Output: cleanscores.csv, Homework-stats.txt, Lab-stats.txt, Quiz-stats.txt, summary-cleanscores.txt,
+# summary_rawscores.txt, Test1-stats.txt, Test2-stats.txt
+
 library(dplyr)
 library(ggplot2)
 source(functions.R)
@@ -83,7 +90,7 @@ for(i in 1:length(rawScores)) { #column
     }
   }
 }
- 
+
 # Rescaling
 rawScores <- mutate(rawScores, "QZ1" = as.vector(rescale100(unlist(rawScores[11]), 0, 12)))
 rawScores <- mutate(rawScores, "QZ2" = as.vector(rescale100(unlist(rawScores[12]), 0, 18)))
@@ -92,7 +99,7 @@ rawScores <- mutate(rawScores, "QZ4" = as.vector(rescale100(unlist(rawScores[14]
 Test1 <- rescale100(as.numeric(unlist(rawScores[15])), 0, 80)
 Test2 <- rescale100(as.numeric(unlist(rawScores[16])), 0, 90)
 
-rawScores <- mutate(rawScores, "Test 1" = Test1, "Test 2" = Test2)
+rawScores <- mutate(rawScores, "Test1" = Test1, "Test2" = Test2)
 
 # Score Homework
 homework <- c()
@@ -118,7 +125,7 @@ for (i in 1:nrow(quizScores)) {
 rawScores <- mutate(rawScores, "Quiz"= quizzes)
 
 # Overall
-overall <- (0.1*rawScores$ATT) + (0.3*rawScores$Homework) + (0.15 *rawScores$Quiz) + (0.2*rawScores$`Test 1`) + (0.25*rawScores$`Test 2`)
+overall <- (0.1*rawScores$ATT) + (0.3*rawScores$Homework) + (0.15 *rawScores$Quiz) + (0.2*rawScores$Test1) + (0.25*rawScores$Test2)
 rawScores <- mutate(rawScores, "Overall"= overall)
 
 #Grade
