@@ -1,7 +1,5 @@
 # HW 04 Grades Visualizer
-###This assignment encompasses the whole process of obtaining raw data, cleaning and sorting out the data, analyzing the data, and then summarizing the data in an app. In particular, the dataset used was fictional STAT 133 class data.
-
-library(shiny)
+##### This assignment encompasses the whole process of obtaining raw data, cleaning and sorting out the data, analyzing the data, and then summarizing the data in an app. In particular, the dataset used was fictional STAT 133 class data.
 
 ## Comments/Reflections
 
@@ -15,6 +13,8 @@ library(shiny)
 - It took about 13 hours to complete this homework.
 - The most time consuming part was cleaning the data. 
 
+
+library(shiny)
 
 ```
 runGitHub("stat133-hws-fall17", "d71chang", subdir = "hw04/app")
