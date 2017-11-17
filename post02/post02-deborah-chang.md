@@ -24,7 +24,9 @@ Background
 
 So what exactly is a normal distribution, and what does it do? Let's first go into the history of the normal. How was it even created? According to Wikipedia, the normal distribution can be called Gaussian or referred to as the bell curve. Below is the formula for graphing the curve in the image above:
 
-![](http://www.mhnederlof.nl/images/normalpdf.jpg) Here, MU is the mean, SD is the standard deviation, and the square of that is the variance. When the mean is 0 and the variance is 1, we call the normal distribution standard. Abraham de Moivre was a statistician who grew tired of calculating probabilities using the binomial formula, as shown below: ![](http://tutorial.math.lamar.edu/Classes/CalcI/DerivativeProofs_files/eq0035P.gif) As you can see above, if n was really large, this formula would become really complicated. de Moivre found a quicker formula to approximate a probability when n was large, and hence the normal distribution was born. There are common probability levels noted as in the curve below, which are the 68%, 95%, and 99.7% levels.
+![](http://www.mhnederlof.nl/images/normalpdf.jpg)
+
+Here, *μ* is the mean, *σ* is the standard deviation, and the square of that (*σ*<sup>2</sup>) is the variance. When the mean is 0 and the variance is 1, we call the normal distribution standard. Abraham de Moivre was a statistician who grew tired of calculating probabilities using the binomial formula, as shown below: ![](http://tutorial.math.lamar.edu/Classes/CalcI/DerivativeProofs_files/eq0035P.gif) As you can see above, if n was really large, this formula would become really complicated. de Moivre found a quicker formula to approximate a probability when n was large, and hence the normal distribution was born. There are common probability levels noted as in the curve below, which are the 68%, 95%, and 99.7% levels.
 
 ![](http://www.softschools.com/math/probability_and_statistics/images/the_normal_distribution_empirical_rule_8.png)
 
