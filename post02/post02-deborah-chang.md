@@ -1,7 +1,7 @@
-Post \#2: The Famous Normal in R
+Post \#2: The Famous Normal Applied in R
 ================
 Deborah Chang
-11/30/2017
+12/03/2017
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE)
@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Introduction
 ------------
 
-The ability of R to generate data analyses by utilizing the seemingly endless possibilities of functions and packages have helped users have less tedious work. R is defined as a staistical language and hence must contain the most common tests and distributions. In elementary school, you may have learned the general summary statistics such as mean, median, and mode. Later, more complex summaries such as standard deviation, linear regression, and correlation may arise. After we transition into different distributions and probabilities. You may have seen a table of a bunch of numeric values towards the end of your statistics or math textbooks; this is the normal table. A particularly famous distribution that you may have heard of is the normal distribution, which we will cover in this post. This distribution has many applications, including its common use in course grading. Below is an example of a normal curve:
+The ability of R to generate data analyses by utilizing the seemingly endless possibilities of functions and packages have helped users have less tedious work. R is defined as a statistical language and hence must contain the most common tests and distributions. In elementary school, you may have learned the general summary statistics such as mean, median, and mode. Later, more complex summaries such as standard deviation, linear regression, and correlation may arise. After we transition into different distributions and probabilities. You may have seen a table of a bunch of numeric values towards the end of your statistics or math textbooks; this is the normal table. A particularly famous distribution that you may have heard of is the normal distribution, which we will cover in this post. This distribution has many applications, including its common use in course grading. Below is an example of a normal curve:
 
 ![](https://www.intmath.com/counting-probability/svg/svgphp-normal-probability-distribution-14-s1.svg)
 
@@ -94,7 +94,9 @@ qnorm( 0.8032362, mean(x), sd(x))
 
     ## [1] 75
 
-1.  dnorm(x, mean, sd): This function calculates the value of the normal approxmation formula. Effective for graphing the normal curve. Arguments: x: numeric value mean: the average sd: standard deviation
+1.  dnorm(x, mean, sd): This function calculates the value of the normal approximation formula. Effective for graphing the normal curve.
+
+Arguments: x: numeric value mean: the average sd: standard deviation
 
 Let's graph our data using the normal approximation:
 
@@ -105,7 +107,9 @@ yvar <- pnorm(x, mean(x), sd(x))
 plot(xvar, yvar, main = "Normal Approximation Example", xlab = "Sample Values", ylab = "Less than Probability Value")
 ```
 
-![](post02-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png) Let's do another example, but this time, with a sample R dataset: PlantGrowth.
+![](post02-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
+
+Let's do another example, but this time, with a sample R dataset: PlantGrowth.
 
 ``` r
 data("PlantGrowth")
@@ -137,21 +141,22 @@ yplant <- pnorm(xplant, mean(plantdata), sd(plantdata))
 plot(xplant, yplant, main = "Normal Approximation Example 2", xlab = "Plant Weight", ylab = "Less than Probability Value")
 ```
 
-![](post02-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-10-1.png) \#\# Discussion
+![](post02-deborah-chang_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-10-1.png)
+
+Discussion
+----------
 
 The normal approximation does wonders to speeding up the process of calculating probabilities, especially in R. Our handy functions pnorm() and qnorm() can save us time in finding the appropriate z-scores as well as factoring in nonstandard data when necessary. The development of new normal distribution functions and packages could continue to beautify our understanding and appreciation for the features of R.
 
 Conclusion
 ----------
 
-We can continue to visualize the effects of using the normal approximation and distribution in R and compare it with other distributions. Some are more comparable when there is a limit of the number of values and the standard deviation.
-
-Hopefully the normal distribution has sparked some interest in the useRs reading this, enjoy normalizing!
+We can continue to visualize the effects of using the normal approximation and distribution in R and compare it with other distributions. Some are more comparable when there is a limit of the number of values and the standard deviation. Hopefully the normal distribution has sparked some interest in the useRs reading this, enjoy normalizing!
 
 Take-Home Message
 -----------------
 
-In this post, we learned the purpose of the normal distribution in relation to others in the world of statistics. We then went over the characteristics of a normal distribution and solved examples using both hand calculations and R functions. Lastly, we discussed the application of the normal distribution for new packages and functions.
+In this post, we learned the purpose of the normal distribution in relation to others in the world of statistics. We then went over the characteristics of a normal distribution and solved examples using both hand calculations and R functions. Lastly, we discussed the application of the normal distribution for new packages and functions. Note that the version of RStudio being used is 1.0.153 and that the plant growth data is already built into this platform.
 
 References
 ----------
